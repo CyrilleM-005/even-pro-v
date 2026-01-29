@@ -1,7 +1,6 @@
 import {
   Users,
   Target,
-  Code,
   Mail,
   Globe,
   GitBranch,
@@ -11,13 +10,16 @@ import {
   Ticket,
   Sparkles,
   Zap,
-  Layout,
   Move,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import MembresGroupe9 from "../../components/Tableaux/MembresGroupe9";
 import Home from "../Home";
+import ListOfTechnos from "../../components/Tableaux/ListOfTechnos";
+
+
+
 
 const AboutPage = () => {
   // const projectStats = [
@@ -56,48 +58,6 @@ const AboutPage = () => {
     },
   ];
 
-  const technos = [
-    {
-      name: "React 18",
-      color: "bg-blue-500/10 text-blue-600 border-blue-500/20",
-      icon: <Sparkles size={18} />,
-    },
-    {
-      name: "TypeScript",
-      color: "bg-sky-500/10 text-sky-600 border-sky-500/20",
-      icon: <Code size={18} />,
-    },
-    {
-      name: "Tailwind CSS",
-      color: "bg-teal-500/10 text-teal-600 border-teal-500/20",
-      icon: <Layout size={18} />,
-    },
-    {
-      name: "DaisyUI",
-      color: "bg-purple-500/10 text-purple-600 border-purple-500/20",
-      icon: <Sparkles size={18} />,
-    },
-    {
-      name: "Framer Motion",
-      color: "bg-pink-500/10 text-pink-600 border-pink-500/20",
-      icon: <Move size={18} />,
-    },
-    {
-      name: "React Router",
-      color: "bg-red-500/10 text-red-600 border-red-500/20",
-      icon: <GitBranch size={18} />,
-    },
-    {
-      name: "Lucide Icons",
-      color: "bg-green-500/10 text-green-600 border-green-500/20",
-      icon: <Sparkles size={18} />,
-    },
-    {
-      name: "Vite",
-      color: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20",
-      icon: <Zap size={18} />,
-    },
-  ];
 
   const endpoints = [
     {
@@ -130,7 +90,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-base-100 to-base-200">
       {/* Header avec branding ECES */}
-      <Home/>
+      <Home />
 
       <main className="container mx-auto px-4 py-12">
         {/* Description du projet */}
@@ -252,27 +212,7 @@ const AboutPage = () => {
         </section>
 
         {/* Stack technique mise à jour */}
-        <section className="mb-16">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-              <Zap className="text-primary" />
-              Technologies Utilisées
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {technos.map((tech, index) => (
-                <div
-                  key={index}
-                  className={`rounded-xl p-4 border-2 flex flex-col items-center justify-center gap-2 hover:scale-[1.02] transition-transform ${tech.color}`}
-                >
-                  <div className="flex items-center gap-2">
-                    {tech.icon}
-                    <span className="font-semibold">{tech.name}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ListOfTechnos/>
 
         {/* Endpoints API */}
         <section className="mb-16">
@@ -306,8 +246,8 @@ const AboutPage = () => {
                               endpoint.method === "GET"
                                 ? "bg-blue-500/10 text-blue-600"
                                 : endpoint.method === "POST"
-                                ? "bg-green-500/10 text-green-600"
-                                : "bg-yellow-500/10 text-yellow-600"
+                                  ? "bg-green-500/10 text-green-600"
+                                  : "bg-yellow-500/10 text-yellow-600"
                             }`}
                           >
                             {endpoint.method}
@@ -392,12 +332,12 @@ const AboutPage = () => {
                   <div>
                     <div className="font-medium">Repository GitHub</div>
                     <a
-                      href="https://github.com/cyrillem-005/even-pro"
+                      href="https://github.com/cyrillem-005/even-pro-v"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:text-primary/80"
                     >
-                      https://github.com/cyrillem-005/even-pro
+                      https://github.com/cyrillem-005/even-pro-v
                     </a>
                   </div>
                 </div>

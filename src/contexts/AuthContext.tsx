@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import type { AuthUser } from "../types/auth";
 
 interface AuthContextType {
@@ -17,8 +17,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
 
   useEffect(() => {
-    const data = localStorage.getItem("user");
-    if (data) setUser(JSON.parse(data));
+    const storedUser = localStorage.getItem("user");
+
+    if (!storedUser) return;
+
+    try {
+      const parsedUser: AuthUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+    } catch (error) {
+      console.error("Utilisateur invalide dans le localStorage", error);
+      localStorage.removeItem("user");
+    }
   }, []);
 
   const login = (userData: AuthUser) => {
