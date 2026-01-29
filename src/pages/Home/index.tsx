@@ -1,5 +1,6 @@
 import { Code, Calendar, Users, Ticket, BarChart } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const particles = Array.from({ length: 25 }, (_, i) => ({
@@ -94,22 +95,26 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="btn btn-primary px-8 shadow-lg shadow-primary/20"
-                >
-                  <Calendar size={20} />
-                  Explorer les événements
-                </motion.button>
+                <Link to={'evenement'}>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="btn btn-primary px-8 shadow-lg shadow-primary/20"
+                  >
+                    <Calendar size={20} />
+                    Explorer les événements
+                  </motion.button>
+                </Link>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="btn btn-outline btn-primary px-8"
-                >
-                  Créer un événement
-                </motion.button>
+                <Link to={'evenement/create'}>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="btn btn-outline btn-primary px-8"
+                  >
+                    Créer un événement
+                  </motion.button>
+                </Link>
               </motion.div>
             </div>
           </motion.div>
