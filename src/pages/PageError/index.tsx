@@ -1,0 +1,9 @@
+const PageError = () => {
+  return (
+    <div>
+        <p></p>
+    </div>
+  )
+};
+
+export default PageError;
